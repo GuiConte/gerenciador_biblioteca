@@ -1,0 +1,36 @@
+<%= form_for @loan do |f| %>
+  <%= render 'layouts/error_messages', object: f.object %>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :reader_id %>
+        <%= collection_select(:loan, :reader_id, Reader.all, :id, :nome, {}, {:class => 'form-control'})%>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :book_id %>
+        <%= collection_select(:loan, :book_id, Book.all, :id, :titulo, {}, {:class => 'form-control'})%>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+         <%= f.label :data_emprestimo %>
+         <%= f.date_field :data_emprestimo, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :data_devolucao %>
+        <%= f.date_field :data_devolucao, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+
+  <%= f.submit 'Salvar', class: 'btn btn-success btn-block' %>
+<% end %>

@@ -1,0 +1,25 @@
+<%= provide :titulo , "Leitores" %>
+<div  class="table-responsive-md">
+    <h2>Leitores </h2>
+    <table  class="table table-bordered">
+        <thead  class="thead-light">
+            <tr>
+                <th  scope="col" width="30%">Nome </th >
+                <th  scope="col" width="45%">CPF </th >
+                <th  scope="col" width="25%" ></th >
+            </tr >
+        </thead >
+        <tbody >
+            <% @reader.each do |reader| %>
+            <tr>
+                <td ><%= reader.nome %></td>
+                <td ><%= reader.cpf %></td >
+                <td ><%= link_to  'Edit', edit_reader_path(reader), class: 'btn btn-warning' %>
+                <%= link_to  'Delete', reader , method: :delete ,
+                data: { confirm: "Confirma a exclusão do leitor #{reader.nome} ?" }, class: 'btn btn-danger' %></td>
+            </tr >
+            <% end %>
+        </tbody >
+    </table >
+    <%= link_to  'Novo Leitor', new_reader_url , class: 'btn btn-success' %>
+</div >

@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reader_id: 
+  book_id: 
+  data_emprestimo: 2019-11-06
+  data_devolucao: 2019-11-06
+  devolvido: false
+
+two:
+  reader_id: 
+  book_id: 
+  data_emprestimo: 2019-11-06
+  data_devolucao: 2019-11-06
+  devolvido: false

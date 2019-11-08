@@ -1,0 +1,46 @@
+<%= form_for @book do |f| %>
+  <%= render 'layouts/error_messages', object: f.object %>
+  <div class="row">
+    <div class="col-md-6"> 
+      <div class="form-group">
+        <%= f.label :titulo %>
+        <%= f.text_field :titulo, class: 'form-control col-md-6' %>
+      </div>
+    </div>
+
+    <div class="col-md-6"> 
+      <div class="form-group">
+        <%= f.label :autor %>
+        <%= f.text_field :autor, class: 'form-control col-md-6' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6"> 
+      <div class="form-group">
+        <%= f.label :editora %>
+        <%= f.text_field :editora, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="col-md-6"> 
+      <div class="form-group">
+        <%= f.label :edicao %>
+        <%= f.text_field :edicao, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+
+<div class="row">
+  <div class="col-md-6"> 
+    <div class="form-group">
+      <%= f.label :quantidade %>
+      <%= f.number_field :quantidade, class: 'form-control' %>
+    </div>
+  </div>
+</div>
+
+  <%= f.submit 'Salvar', class: 'btn btn-success btn-block' %>
+<% end %>
+

@@ -1,0 +1,30 @@
+<%= provide :titulo , "Emprestimos" %>
+<div  class="table-responsive-md">
+    <h2>Emprestimos </h2>
+    <table  class="table table-bordered">
+        <thead  class="thead-light">
+            <tr>
+                <th  scope="col" width="25%">Livro </th >
+                <th  scope="col" width="25%">Leitor </th >
+                <th  scope="col" width="15%">Data de Emprestimo </th >
+                <th  scope="col" width="15%">Data de Devolução </th >
+                <th  scope="col" width="20%" >Ações</th >
+            </tr >
+        </thead >
+        <tbody >
+            <% @loan.each do |loan| %>
+              <% @book = Book.find(loan.book_id) %>
+              <% @reader = Reader.find(loan.reader_id) %>
+            <tr>
+                <td ><%= @book.titulo %></td>
+                <td ><%= @reader.nome %></td>
+                <td ><%= loan.data_emprestimo.strftime("%m/%d/%Y") %></td>
+                <td ><%= loan.data_devolucao.strftime("%m/%d/%Y")  %></td>
+                <td><%=  link_to 'Devolução', '#' , class: 'btn btn-primary' %>
+                <%= link_to  'Delete', loan , method: :delete ,
+                data: { confirm: "Confirma a exclusão do emprestimo ?" }, class: 'btn btn-danger' %></td>
+            </tr >
+            <% end %>
+        </tbody >
+    </table >
+    <%= link_to  'Novo Emprestimo', new_loan_path , class: 'btn btn-success' %>

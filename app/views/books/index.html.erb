@@ -1,0 +1,27 @@
+<%= provide :titulo , "Livros" %>
+<div  class="table-responsive-md">
+    <h2>Livros </h2>
+    <table  class="table table-bordered">
+        <thead  class="thead-light">
+            <tr>
+                <th  scope="col" width="30%">Titulo </th >
+                <th  scope="col" width="35%">Autor </th >
+                <th  scope="col" width="10%" >Qtd</th >
+                <th  scope="col" width="25%" >Ações</th >
+            </tr >
+        </thead >
+        <tbody >
+            <% @book.each do |book| %>
+            <tr>
+                <td ><%= book.titulo %></td>
+                <td ><%= book.autor %></td >
+                <td ><%= book.quantidade %></td >
+                <td><%=  link_to 'Show', book , class: 'btn btn-primary' %>
+                <%= link_to  'Edit', edit_book_path(book), class: 'btn btn-warning' %>
+                <%= link_to  'Delete', book , method: :delete ,
+                data: { confirm: "Confirma a exclusão do leitor #{book.titulo} ?" }, class: 'btn btn-danger' %></td>
+            </tr >
+            <% end %>
+        </tbody >
+    </table >
+    <%= link_to  'Novo Livro', new_book_url , class: 'btn btn-success' %>
