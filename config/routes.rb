@@ -7,7 +7,5 @@ Rails.application.routes.draw do
   resources :readers
   resources :users
   resources :books
-  resources :loans do
-    post :teste, :on => :collection
-  end
+  resources :loans
 end
