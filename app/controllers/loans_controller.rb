@@ -8,6 +8,10 @@ class LoansController < ApplicationController
     @loan = Loan.new
   end
 
+  def teste
+    redirect_to books_path
+  end
+
   def create
     @loan = Loan.new(loans_params)
     @book = Book.find(@loan.book_id)
