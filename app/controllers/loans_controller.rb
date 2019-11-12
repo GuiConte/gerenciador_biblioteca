@@ -9,8 +9,15 @@ class LoansController < ApplicationController
   end
 
   def devolucao
-    flash[:success] = "Emprestimo devolvido com sucesso !"
-    redirect_to loans_path
+    @loan = Loan.find(params[:id])
+    @loan.devolvido = true
+    @book = Book.find(@loan.book_id)
+    @book.quantidade = @book.quantidade + 1
+    if @book.save && @loan.save
+      flash[:success] = "Emprestimo devolvido com sucesso !"
+      redirect_to loans_path
+    end
+    
   end
 
   def create

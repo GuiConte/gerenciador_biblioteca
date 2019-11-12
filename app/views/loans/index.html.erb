@@ -13,17 +13,19 @@
         </thead >
         <tbody >
             <% @loan.each do |loan| %>
-              <% @book = Book.find(loan.book_id) %>
-              <% @reader = Reader.find(loan.reader_id) %>
-            <tr>
-                <td ><%= @book.titulo %></td>
-                <td ><%= @reader.nome %></td>
-                <td ><%= loan.data_emprestimo.strftime("%d/%m/%Y") %></td>
-                <td ><%= loan.data_devolucao.strftime("%d/%m/%Y")  %></td>
-                <td class="row"><%=  button_to 'Devolução', {:controller => 'loans', :action => 'devolucao' },{ class: 'btn btn-primary',data: { confirm: "Confirma a devolução do emprestimo ?" } }%>
-                <%= link_to  'Delete', loan , method: :delete ,
-                data: { confirm: "Confirma a exclusão do emprestimo ?" }, class: 'btn btn-danger' %></td>
-            </tr >
+                <% if loan.devolvido == false %>
+                    <% @book = Book.find(loan.book_id) %>
+                    <% @reader = Reader.find(loan.reader_id) %>
+                    <tr>
+                        <td ><%= @book.titulo %></td>
+                        <td ><%= @reader.nome %></td>
+                        <td ><%= loan.data_emprestimo.strftime("%d/%m/%Y") %></td>
+                        <td ><%= loan.data_devolucao.strftime("%d/%m/%Y")  %></td>
+                        <td ><%=  button_to 'Devolução', {:controller => 'loans', :action => 'devolucao', id:loan.id },{ class: 'btn btn-primary',data: { confirm: "Confirma a devolução do emprestimo ?" } }%>
+                        <%= link_to  'Delete', loan , method: :delete ,
+                        data: { confirm: "Confirma a exclusão do emprestimo ?" }, class: 'btn btn-danger' %></td>
+                    </tr >
+                <% end %>
             <% end %>
         </tbody >
     </table >
