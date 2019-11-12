@@ -3,6 +3,7 @@
 one:
   titulo: MyString
   autor: MyString
+  descricao: MyString
   edicao: MyString
   editora: MyString
   quantidade: 1
@@ -10,6 +11,7 @@ one:
 two:
   titulo: MyString
   autor: MyString
+  descricao: MyString
   edicao: MyString
   editora: MyString
   quantidade: 1

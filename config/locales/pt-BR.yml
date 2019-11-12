@@ -16,6 +16,13 @@ pt-BR:
         uf:                     'Estado'
         email:                  'Email'
         telefone:               'Telefone'
+      book:
+        titulo:                 'Título'
+        autor:                  'Autor'
+        descricao:              'Descrição'
+        edicao:                 'Edição'
+        editora:                'Editora'
+        quantidade:             'Quantidade'
       loan:
         reader_id:              'Leitor'
         book_id:                'Livro'
