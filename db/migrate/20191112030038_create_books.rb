@@ -6,7 +6,7 @@ class CreateBooks < ActiveRecord::Migration[6.0]
       t.string :descricao, null:false
       t.string :edicao, null:false
       t.string :editora, null:false
-      t.integer :quantidade, null:false
+      t.integer :quantidade, null:false, default: 0
 
       t.timestamps
     end

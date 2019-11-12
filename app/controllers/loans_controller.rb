@@ -34,7 +34,7 @@ class LoansController < ApplicationController
         end
       end
     else
-      flash[:danger] = "Emprestimo não realizado, nenhum exemplar está disponivel !"
+      flash[:danger] = "Emprestimo não realizado, nenhum exemplar deste livro está disponivel !"
       redirect_to loans_path
     end
   end
