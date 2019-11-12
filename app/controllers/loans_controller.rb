@@ -8,8 +8,9 @@ class LoansController < ApplicationController
     @loan = Loan.new
   end
 
-  def teste
-    redirect_to books_path
+  def devolucao
+    flash[:success] = "Emprestimo devolvido com sucesso !"
+    redirect_to loans_path
   end
 
   def create

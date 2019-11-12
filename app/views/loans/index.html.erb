@@ -20,7 +20,7 @@
                 <td ><%= @reader.nome %></td>
                 <td ><%= loan.data_emprestimo.strftime("%d/%m/%Y") %></td>
                 <td ><%= loan.data_devolucao.strftime("%d/%m/%Y")  %></td>
-                <td><%=  button_to 'Devolução', :controller => 'loans', :action => 'teste' , class: 'btn btn-primary' %>
+                <td class="row"><%=  button_to 'Devolução', {:controller => 'loans', :action => 'devolucao' },{ class: 'btn btn-primary',data: { confirm: "Confirma a devolução do emprestimo ?" } }%>
                 <%= link_to  'Delete', loan , method: :delete ,
                 data: { confirm: "Confirma a exclusão do emprestimo ?" }, class: 'btn btn-danger' %></td>
             </tr >
