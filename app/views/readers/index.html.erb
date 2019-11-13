@@ -14,7 +14,8 @@
             <tr>
                 <td ><%= reader.nome %></td>
                 <td ><%= reader.cpf %></td >
-                <td ><%= link_to  'Edit', edit_reader_path(reader), class: 'btn btn-warning' %>
+                <td ><%=  link_to 'Show', reader , class: 'btn btn-primary' %>
+                <%= link_to  'Edit', edit_reader_path(reader), class: 'btn btn-warning' %>
                 <%= link_to  'Delete', reader , method: :delete ,
                 data: { confirm: "Confirma a exclusão do leitor #{reader.nome} ?" }, class: 'btn btn-danger' %></td>
             </tr >

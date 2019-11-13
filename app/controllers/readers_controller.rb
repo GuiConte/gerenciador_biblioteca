@@ -4,6 +4,10 @@ class ReadersController < ApplicationController
     @reader = Reader.all
   end
 
+  def  show
+    @reader = Reader.find(params[:id])
+  end
+
   def new
     @reader = Reader.new
   end

@@ -1,0 +1,71 @@
+<div class="row" style="border: 1px solid black;">
+  <div class="col-md-12 col-sm-12" style="padding-bottom: 25px;">
+        <h1> Dados do Leitor</h1>
+            <br>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Nome</span>
+                    <label type="text" class="form-control" aria-describedby="basic-addon1"><%=  @reader.nome %></label>
+                </div>
+            </div>
+            <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">CPF</span>
+                <label type="text" class="form-control" aria-describedby="basic-addon1"><%=  @reader.cpf %></label>
+            </div>
+            
+            <br>
+        </div>
+        
+        <div class="col-md-6">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Endereço</span>
+                    <label type="text" class="form-control" aria-describedby="basic-addon1"><%=  @reader.endereco %></label>
+                </div>
+            </div>
+            <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Cidade</span>
+                <label type="text" class="form-control" aria-describedby="basic-addon1"><%=  @reader.cidade %></label>
+            </div>
+            <br>
+        </div>
+
+        <div class="col-md-6">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Estado</span>
+                    <label type="text" class="form-control" aria-describedby="basic-addon1"><%=  @reader.uf %></label>
+                </div>
+            </div>
+            <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Telefone</span>
+                <label type="text" class="form-control" aria-describedby="basic-addon1"> <%= @reader.telefone %></label>
+            </div>
+            <br>
+        </div>
+        
+        <div class="col-md-6">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">E-mail</span>
+                    <label type="text" class="form-control" aria-describedby="basic-addon1"><%=  @reader.email %></label>
+                </div>
+            </div>
+            <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Atualizado em: </span>
+                <label type="text" class="form-control" aria-describedby="basic-addon1"> <%= @reader.updated_at.strftime("%b %d, %Y") %></label>
+            </div>
+            <br>
+        </div>
+       
+    
+    <div  class="text-center">
+        <%= link_to  'Voltar', readers_path , class: 'btn btn-primary' %>
+        <%= link_to  'Editar', edit_reader_path, class: 'btn btn-warning' %>
+        <%= link_to  'Novo Leitor', new_reader_url , class: 'btn btn-success' %>
+    </div >
+
+
+  </div>
+</div>

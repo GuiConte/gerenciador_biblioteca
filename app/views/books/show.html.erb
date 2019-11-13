@@ -1,16 +1,63 @@
-<div  class="jumbotron">
-    <h2 ><%=  @book.titulo %></h2>
-    <span  class="label  label-primary">
-        Last  update  <%= @book.updated_at.strftime("%b %d, %Y") %>
-    </span >
-</div >
-<div  class="panel  panel-default">
-    <div  class="panel-body">
-        <p>
-            <%= @book.autor %>
-        </p>
+<div class="row" style="border: 1px solid black;">
+  <div class="col-md-12 col-sm-12" style="padding-bottom: 25px;">
+        <h1> Dados do Livro</h1>
+            <br>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Título</span>
+                    <label type="text" class="form-control" aria-describedby="basic-addon1"><%=  @book.titulo %></label>
+                </div>
+            </div>
+            <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Autor</span>
+                <label type="text" class="form-control" aria-describedby="basic-addon1"><%=  @book.autor %></label>
+            </div>
+            
+            <br>
+        </div>
+        
+        <div class="col-md-6">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Editora</span>
+                    <label type="text" class="form-control" aria-describedby="basic-addon1"><%=  @book.editora %></label>
+                </div>
+            </div>
+            <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Edição</span>
+                <label type="text" class="form-control" aria-describedby="basic-addon1"><%=  @book.edicao %></label>
+            </div>
+            <br>
+        </div>
+        
+        <div class="col-md-6">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Quantidade</span>
+                    <label type="text" class="form-control" aria-describedby="basic-addon1"><%=  @book.quantidade %></label>
+                </div>
+            </div>
+            <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Atualizado em: </span>
+                <label type="text" class="form-control" aria-describedby="basic-addon1"> <%= @book.updated_at.strftime("%b %d, %Y") %></label>
+            </div>
+            <br>
+        </div>
+        <div class="col-md-12">
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Descrição</span>
+            <textarea type="text" readonly class="form-control" aria-describedby="basic-addon1" style="background-color:white;"><%=  @book.descricao %></textarea>
+        </div>
+        <br>
+    </div>
+    
+    <div  class="text-center">
+        <%= link_to  'Voltar', books_path , class: 'btn btn-primary' %>
+        <%= link_to  'Editar', edit_book_path, class: 'btn btn-warning' %>
+        <%= link_to  'Novo Livro', new_book_url , class: 'btn btn-success' %>
     </div >
-    <div  class="text-right">
-        <%= link_to  'Back', books_path , class: 'btn btn-outline-secondary' %>
-    </div >
-</div >
+
+
+  </div>
+</div>
