@@ -12,6 +12,7 @@
         document.getElementById("alert").style.display = "none";
       }
     </script>
+    
   </head>
 
   <body>
@@ -30,9 +31,13 @@
         </div>
       <%= yield %>
 
-      <%= render 'layouts/footer' %>
+      
       
     </div>
-    
+  <div class="container">
+  <div class ="rodapeHome">
+    <%= render 'layouts/footer' %>
+    </div>
+  </div>
   </body>
 </html>

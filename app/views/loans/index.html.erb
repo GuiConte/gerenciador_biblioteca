@@ -14,10 +14,10 @@
         <thead  class="thead-light">
             <tr>
                 <th  scope="col" width="25%">Livro </th >
-                <th  scope="col" width="25%">Leitor </th >
+                <th  scope="col" width="20%">Leitor </th >
                 <th  scope="col" width="15%">Data de Emprestimo </th >
                 <th  scope="col" width="15%">Data de Devolução </th >
-                <th  scope="col" width="20%" >Ações</th >
+                <th  scope="col" width="25%" >Ações</th >
             </tr >
         </thead >
         <tbody >
@@ -30,8 +30,9 @@
                         <td ><%= @reader.nome %></td>
                         <td ><%= loan.data_emprestimo.strftime("%d/%m/%Y") %></td>
                         <td ><%= loan.data_devolucao.strftime("%d/%m/%Y")  %></td>
-                        <td ><%=  link_to 'Devolução', {:controller => 'loans', :action => 'devolucao', id:loan.id },{ class: 'btn btn-primary', data: { confirm: "Confirma a devolução do emprestimo ?" } }%>
-                        <%= link_to  'Delete', loan , method: :delete ,
+                        <td > <%= link_to  'Renovar', edit_loan_path(loan), class: 'btn btn-warning' %>
+                        <%=  link_to 'Devolução', {:controller => 'loans', :action => 'devolucao', id:loan.id },{ class: 'btn btn-primary', data: { confirm: "Confirma a devolução do emprestimo ?" } }%>
+                        <%= link_to  'Excluir', loan , method: :delete ,
                         data: { confirm: "Confirma a exclusão do emprestimo ?" }, class: 'btn btn-danger' %></td>
                     </tr >
                 <% end %>

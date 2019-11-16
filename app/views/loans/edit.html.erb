@@ -1,19 +1,22 @@
+<div class="container" style="background: #FFF; border: 1px solid black; padding-bottom: 25px;">
+  <div class="col-md-12">
+    <h1 class="text-center">Renovar Emprestimo</h1>
+  </div>
 
-
-<%= form_for @loan do |f| %>
+  <%= form_for @loan do |f| %>
   <%= render 'layouts/error_messages', object: f.object %>
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">
         <%= f.label :reader_id %>
-        <%= collection_select(:loan, :reader_id, Reader.all, :id, :nome, {}, {:class => 'form-control'})%>
+        <%= collection_select(:loan, :reader_id, Reader.all, :id, :nome, {},  {:class => 'form-control',disabled: true})%>
       </div>
     </div>
 
     <div class="col-md-6">
       <div class="form-group">
         <%= f.label :book_id %>
-        <%= collection_select(:loan, :book_id, Book.all, :id, :titulo, {}, {:class => 'form-control'})%>
+        <%= collection_select(:loan, :book_id, Book.all, :id, :titulo, {},  {:class => 'form-control', disabled: true})%>
       </div>
     </div>
   </div>
@@ -36,3 +39,4 @@
 
   <%= f.submit 'Salvar', class: 'btn btn-success btn-block' %>
 <% end %>
+</div>
