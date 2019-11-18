@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
 
   def new
-    @user = User.new
+    if user_signed_in?
+      @user = User.new
+    else
+      flash[:danger] = "Faça Login para continuar"
+      redirect_to entrar_path
+    end
   end
 
   def create
