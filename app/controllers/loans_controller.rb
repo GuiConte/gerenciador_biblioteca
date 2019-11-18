@@ -1,11 +1,21 @@
 class LoansController < ApplicationController
 
   def  index
-    @loan = Loan.all
+    if user_signed_in?
+      @loan = Loan.all
+    else
+      flash[:danger] = "Faça Login para continuar"
+      redirect_to entrar_path
+    end
   end
 
   def new
-    @loan = Loan.new
+    if user_signed_in?
+      @loan = Loan.new
+    else
+      flash[:danger] = "Faça Login para continuar"
+      redirect_to entrar_path
+    end
   end
 
   def devolucao

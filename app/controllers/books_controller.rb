@@ -1,14 +1,24 @@
 class BooksController < ApplicationController
   def  index
-    @book = Book.all
+    if user_signed_in?
+      @book = Book.all
+    else
+      flash[:danger] = "Faça Login para continuar"
+      redirect_to entrar_path
+    end
   end
 
   def  show
-    @book = Book.find(params[:id])
+    @book = Book.find(params[:id]) 
   end
 
   def new
-    @book = Book.new
+    if user_signed_in?
+      @book = Book.new
+    else
+      flash[:danger] = "Faça Login para continuar"
+      redirect_to entrar_path
+    end
   end
 
   def create

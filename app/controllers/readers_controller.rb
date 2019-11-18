@@ -1,7 +1,12 @@
 class ReadersController < ApplicationController
 
   def  index
-    @reader = Reader.all
+    if user_signed_in?
+      @reader = Reader.all
+    else
+      flash[:danger] = "Faça Login para continuar"
+      redirect_to entrar_path
+    end
   end
 
   def  show
@@ -9,7 +14,12 @@ class ReadersController < ApplicationController
   end
 
   def new
-    @reader = Reader.new
+    if user_signed_in?
+      @reader = Reader.new
+    else
+      flash[:danger] = "Faça Login para continuar"
+      redirect_to entrar_path
+    end
   end
 
   def create
